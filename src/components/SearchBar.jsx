@@ -1,14 +1,14 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import TaskList from "./TaskList";
 import { TaskContext } from "../context/TaskContext";
 
 function SearchBar() {
   const [query, setQuery] = useState("");
+  const { tasks } = useContext(TaskContext);
 
-  function handleSearch(e) {
-    setQuery(e.target.value);
-  }
-
+  const filteredTasks = tasks.filter(task =>
+    task.title.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div>
@@ -16,9 +16,9 @@ function SearchBar() {
         type="text"
         placeholder="Search tasks..."
         value={query}
-        onChange={handleSearch}
+        onChange={e => setQuery(e.target.value)}
       />
-      <TaskList query={query}/>
+      <TaskList tasks={filteredTasks} />
     </div>
   );
 }
