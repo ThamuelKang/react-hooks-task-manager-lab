@@ -17,6 +17,16 @@ export function TaskProvider({ children }) {
                 task.id === id ? { ...task, completed: !task.completed } : task
             )
         );
+        const taskToUpdate = tasks.find(task => task.id === id);
+        if (!taskToUpdate) return;
+
+        fetch(`http://localhost:6001/tasks/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ completed: !taskToUpdate.completed })
+        });
     }
 
     function addTask(title) {
@@ -25,6 +35,7 @@ export function TaskProvider({ children }) {
             title,
             completed: false
         }
+
         setTasks(previousTasks => [...previousTasks, newTask])
     }
 

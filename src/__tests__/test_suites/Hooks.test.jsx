@@ -55,25 +55,25 @@ describe("Task Manager App", () => {
     });
   });
 
-  // test("toggles task completion state", async () => {
-  //   global.setFetchResponse(global.baseTasks)
-  //   let { getByText, findAllByTestId } = render(
-  //     <TaskProvider>
-  //       <App />
-  //     </TaskProvider>
-  //   );
-  //   const button =  await findAllByTestId("1")
-  //   global.setFetchResponse([{
-  //       "id": 1,
-  //       "name": "Woody",
-  //       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-  //       "likes": 8
-  //   }])
+  test("toggles task completion state", async () => {
+    global.setFetchResponse(global.baseTasks)
+    let { getByText, findAllByTestId } = render(
+      <TaskProvider>
+        <App />
+      </TaskProvider>
+    );
+    const button =  await findAllByTestId("1")
+    global.setFetchResponse([{
+        "id": 1,
+        "name": "Woody",
+        "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
+        "likes": 8
+    }])
     
     
-  //   await waitFor(() => {
-  //       fireEvent.click(button[0]);
-  //       expect(getByText("Undo")).toBeInTheDocument();
-  //   });
-  // });
+    await waitFor(() => {
+        fireEvent.click(button[0]);
+        expect(getByText("Undo")).toBeInTheDocument();
+    });
+  });
 });

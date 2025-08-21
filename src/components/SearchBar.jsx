@@ -6,9 +6,9 @@ function SearchBar() {
   const [query, setQuery] = useState("");
   const { tasks } = useContext(TaskContext);
 
-  const filteredTasks = tasks.filter(task =>
-    task.title.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredTasks = tasks.filter(task => 
+    task.title.toLowerCase().includes(query.toLowerCase()));
+
 
   return (
     <div>

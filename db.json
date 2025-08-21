@@ -8,7 +8,7 @@
     {
       "id": "2",
       "title": "Finish React project",
-      "completed": true
+      "completed": false
     },
     {
       "id": "3",
@@ -28,6 +28,16 @@
     {
       "id": "dda6",
       "title": "dfdf",
+      "completed": false
+    },
+    {
+      "id": "1755747587439",
+      "title": "walk a dog",
+      "completed": false
+    },
+    {
+      "id": 1,
+      "title": "ddd",
       "completed": false
     }
   ]
