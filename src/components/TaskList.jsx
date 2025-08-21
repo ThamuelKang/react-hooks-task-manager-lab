@@ -11,10 +11,7 @@ function TaskList({ tasks }) {
           <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>
             {task.title}
           </span>
-          <button
-            data-testid={task.id.toString()}
-            onClick={() => toggleComplete(task.id)}
-          >
+          <button key = {task.id} id={task.id} onClick={() => toggleComplete(task.id)}>
             {task.completed ? "Undone" : "Complete"}
           </button>
         </li>
